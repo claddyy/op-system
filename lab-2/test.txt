@@ -1,0 +1,44 @@
+already have some idea of what a computer program does when it runs.
+If not, this book (and the corresponding course) is going to be difficult
+— so you should probably stop reading this book, or run to the nearest bookstore and quickly consume the necessary background material
+before continuing (both Patt & Patel [PP03] and Bryant & O’Hallaron
+[BOH10] are pretty great books).
+So what happens when a program runs?
+Well, a running program does one very simple thing: it executes instructions. Many millions (and these days, even billions) of times every second, the processor fetches an instruction from memory, decodes
+it (i.e., figures out which instruction this is), and executes it (i.e., it does
+the thing that it is supposed to do, like add two numbers together, access
+memory, check a condition, jump to a function, and so forth). After it is
+done with this instruction, the processor moves on to the next instruction,
+and so on, and so on, until the program finally completes1
+.
+Thus, we have just described the basics of the Von Neumann model of
+computing2
+. Sounds simple, right? But in this class, we will be learning
+that while a program runs, a lot of other wild things are going on with
+the primary goal of making the system easy to use.
+There is a body of software, in fact, that is responsible for making it
+easy to run programs (even allowing you to seemingly run many at the
+same time), allowing programs to share memory, enabling programs to
+interact with devices, and other fun stuff like that. That body of software
+1Of course, modern processors do many bizarre and frightening things underneath the
+hood to make programs run faster, e.g., executing multiple instructions at once, and even issuing and completing them out of order! But that is not our concern here; we are just concerned
+with the simple model most programs assume: that instructions seemingly execute one at a
+time, in an orderly and sequential fashion.
+2Von Neumann was one of the early pioneers of computing systems. He also did pioneering work on game theory and atomic bombs, and played in the NBA for six years. OK, one of
+those things isn’t true.
+1
+2 INTRODUCTION TO OPERATING SYSTEMS
+THE CRUX OF THE PROBLEM:
+HOW TO VIRTUALIZE RESOURCES
+One central question we will answer in this book is quite simple: how
+does the operating system virtualize resources? This is the crux of our
+problem. Why the OS does this is not the main question, as the answer
+should be obvious: it makes the system easier to use. Thus, we focus on
+the how: what mechanisms and policies are implemented by the OS to
+attain virtualization? How does the OS do so efficiently? What hardware
+support is needed?
+We will use the “crux of the problem”, in shaded boxes such as this one,
+as a way to call out specific problems we are trying to solve in building
+an operating system. Thus, within a note on a particular topic, you may
+find one or more cruces (yes, this is the proper plural) which highlight the
+problem. The details within the chapter, of co
